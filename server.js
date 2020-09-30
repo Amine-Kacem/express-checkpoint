@@ -2,13 +2,13 @@ const express = require("express");
 const app = express();
 const student = require("./routes/students");
 
-let currentHour = new Date().getHours() + 10;
+let currentHour = new Date().getHours();
 console.log(currentHour);
 
 app.get("/", (req, res) => {
   if (currentHour > 9 && currentHour < 17)
-    res.sendFile(__dirname + "/public/closed.html");
-  else res.sendFile(__dirname + "/public/index.html");
+    res.sendFile(__dirname + "/public/index.html");
+  else res.sendFile(__dirname + "/public/closed.html");
 });
 
 app.use(express.json());
